@@ -1,0 +1,16 @@
+{
+    "name": "com.biscrat.AnimatorControllerMerger",
+    "rootNamespace": "com.biscrat.AnimatorControllerMerger",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
