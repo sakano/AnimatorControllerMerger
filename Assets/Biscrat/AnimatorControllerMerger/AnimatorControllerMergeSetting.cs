@@ -55,12 +55,13 @@ namespace com.biscrat.AnimatorControllerMerger.Editor
         {
             foreach (var parameter in src.parameters)
             {
-                dest.AddParameter(parameter);
+                AnimatorControllerUtility.AddParameter(dest, parameter);
             }
 
+            var destAssetPath = AssetDatabase.GetAssetPath(dest);
             foreach (var layer in src.layers)
             {
-                dest.AddLayer(layer);
+                AnimatorControllerUtility.AddLayer(dest, layer, false, destAssetPath);
             }
         }
     }
