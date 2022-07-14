@@ -8,7 +8,7 @@ namespace com.biscrat.AnimatorControllerMerger.Editor
 {
     public static class Menus
     {
-        [MenuItem("Tools/Biscrat/Merge All Animator Controllers")]
+        [MenuItem("Tools/Biscrat/Run All Merge Settings")]
         public static void MergeAll()
         {
             var guids = AssetDatabase.FindAssets("t:AnimatorControllerMergeSetting");
