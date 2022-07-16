@@ -59,9 +59,11 @@ namespace com.biscrat.AnimatorControllerMerger.Editor
             }
 
             var destAssetPath = AssetDatabase.GetAssetPath(dest);
+            var firstLayer = true;
             foreach (var layer in src.layers)
             {
-                AnimatorControllerUtility.AddLayer(dest, layer, false, destAssetPath);
+                AnimatorControllerUtility.AddLayer(dest, layer, firstLayer, destAssetPath);
+                firstLayer = false;
             }
         }
     }
