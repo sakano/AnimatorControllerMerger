@@ -19,18 +19,31 @@ namespace com.biscrat.AnimatorControllerMerger.Editor
                 .ToArray();
 
 
-            foreach (var path in settingPaths)
+            try
             {
-                var setting = AssetDatabase.LoadAssetAtPath<AnimatorControllerMergeSetting>(path);
-                try
+                for (var index = 0; index < settingPaths.Length; index++)
                 {
-                    Debug.Log($"Merging {path}");
-                    setting.Merge();
+                    var path = settingPaths[index];
+
+                    EditorUtility.DisplayProgressBar("Run All Merge Settings", path,
+                        (float)index / settingPaths.Length);
+
+                    var setting = AssetDatabase.LoadAssetAtPath<AnimatorControllerMergeSetting>(path);
+                    try
+                    {
+                        Debug.Log($"Merging {path}");
+                        setting.Merge();
+                    }
+                    catch (Exception e)
+                    {
+                        Debug.LogError($"Failed to merge animator controllers. SettingPath:{path}, exception:{e}",
+                            setting);
+                    }
                 }
-                catch (Exception e)
-                {
-                    Debug.LogError($"Failed to merge animator controllers. SettingPath:{path}, exception:{e}", setting);
-                }
+            }
+            finally
+            {
+                EditorUtility.ClearProgressBar();
             }
         }
     }
