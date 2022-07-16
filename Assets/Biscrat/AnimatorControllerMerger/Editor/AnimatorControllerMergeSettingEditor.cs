@@ -45,6 +45,8 @@ namespace com.biscrat.AnimatorControllerMerger.Editor
                     }
                 }
             }
+            
+            EditorGUILayout.Space();
 
             {
                 EditorGUILayout.PropertyField(_destProperty, new GUIContent("Destination Animator Controller"));
